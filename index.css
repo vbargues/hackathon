@@ -1,0 +1,60 @@
+
+body {
+	font-size: 20px;
+	font-family: 'Roboto';
+	background: #e1eec3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f05053, #e1eec3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f05053, #e1eec3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+
+
+.container {
+	 width: 70%;
+	 max-width: 70%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+
+.card {
+/*/	display: flex;*/
+	/*flex-direction: row;*/
+	/*justify-content: flex-start;*/
+	/*min-width: 400px;*/
+	/*border: 1px black solid;*/
+	/*border-radius: 8px;*/
+	/*height: 140px;	*/
+	text-align: left;
+}
+
+.card p {
+	font-size: 16px;
+}
+
+.card-level {
+	background-color: #2a265f;
+	color: white;
+	max-width: 40%;
+	text-align: center;
+	vertical-align: middle;
+	border-radius:8px 0px 0px 8px;
+
+}
+
+.card-informations {
+	max-width: 60%;
+	background-color: white;
+	color: #2a265f;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 8px;
+}
+
+.my_card {
+	width:400px;
+	height: 180px;
+}
+/*#2a265f*/
