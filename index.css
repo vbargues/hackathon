@@ -2,32 +2,51 @@
 body {
 	font-size: 20px;
 	font-family: 'Roboto';
-	background: #e1eec3;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f05053, #e1bea3);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f05053, #e1bea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #35abc8;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #75cbc8, #35abd8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #75cbc8, #35abd8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
 h1 {
 	width: 100%;
+	color:  #ddd0d0;
+	text-align: left;
+	padding-left: 40px;
+	font-family: 'Montserrat Alternates', sans-serif;
+    margin: 2rem 0 1rem 0 !important;
+}
+
+h1 a {
+	color: inherit;
+}
+
+.header {
+    background-color: #24292f;
 }
 
 .user {
-    position: absolute;
+    position: relative;
     right: 50px;
-    padding: 50px;
+    padding: 25px;
+    padding-right: 75px;
+    color: #ddd0d0;
+    bottom: -16px;
 }
 
 .user span {
     font-size: 50px;
     position: absolute;
     margin-top: -10px;
-
+    border: 1px solid #ddd0d0;
+    border-radius: 50px;
+    right: 0;
 }
 
 .container {
 	 width: 70%;
 	 max-width: 70%;
+	 padding-top: 50px;
 /*	 display: flex;
 	 justify-content: center;
 	 align-items: center;*/

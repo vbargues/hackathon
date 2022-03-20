@@ -1,0 +1,17 @@
+.CodeMirror {
+	text-align: left;
+	font-size: 14px;
+	height: 100%;
+	width: 100%;
+}
+
+.footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	border-top: 2px solid #24292f;
+}
+
+.btn {
+	margin: 4em;
+}

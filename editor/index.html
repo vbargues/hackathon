@@ -1,0 +1,80 @@
+    <!DOCTYPE html>  
+    <html>  
+    <head>  
+       <title>Exercice</title>  
+       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+       <link rel="stylesheet" href="../lib/codemirror.css">
+       <link rel="stylesheet" href="../index.css">
+       <link rel="stylesheet" href="editor.css">
+       <link rel="preconnect" href="https://fonts.googleapis.com`">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link rel="stylesheet" href="../lib/solidity.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+       <script src="../lib/codemirror.js"></script>
+       <script src="../lib/solidity.js"></script>
+   </head>  
+   <body style="text-align: center;">  
+    <div class="header" style="display: flex;">
+    <h1><a href="../test.html"> solidify</a></h1>
+        <div class="user">0x3b0...Ff<span class="material-icons">person</span>
+        </div>
+    </div>
+    <!-- <div class="container"> -->
+        <!-- <div class="card"> <div class="card-level"> <h4> Level <span style="color: green;"> Beginner </span> </h4></div> <div class="card-information"> Build your first Dumb Contract </div></div> -->
+
+<!-- <div class="my_card"> -->
+  <div style="display: flex; justify-content: center; flex-wrap: no-wrap; padding: 2em; height: calc(100vh - 300px);">
+  <div style="max-width: 35%; padding: 2em; text-align: left;">Dans cet exercice vous devrez faire ...
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum tempus pretium. Pellentesque ac elit ut sapien bibendum maximus ut dictum massa. Mauris pharetra fermentum velit, sit amet scelerisque nisi blandit quis. Vestibulum ullamcorper ex eu venenatis tincidunt. Aliquam efficitur iaculis dolor. Duis laoreet quam eu laoreet lobortis. Praesent nisl lorem, pharetra in sagittis sit amet, euismod id purus. Sed id ante efficitur, bibendum ligula vel, mattis elit. Ut semper tellus at dui consequat egestas. Nunc commodo nibh massa, et mattis lacus accumsan in. Aliquam in congue odio. Curabitur in cursus nisl, vel lacinia arcu. Nulla sit amet faucibus tellus. Ut facilisis, diam ut pellentesque elementum, tellus ex euismod ipsum, id pretium velit nisi a nulla. Proin fermentum auctor nunc quis porta. Nullam vel faucibus dolor, in gravida diam.
+  </div>
+  <textarea id="editor" style="padding: 0.5em; margin-top: 2em; width: 500px !important">
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+
+contract StartonERC20Pause is ERC20, Pausable, AccessControl {
+    bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+
+    constructor(string memory name, string memory symbol, uint256 initialSupply, address ownerOrMultiSigContract) ERC20(name, symbol) {
+        _setupRole(DEFAULT_ADMIN_ROLE, ownerOrMultiSigContract);
+        _setupRole(PAUSER_ROLE, ownerOrMultiSigContract);
+        _mint(ownerOrMultiSigContract, initialSupply);
+    }
+
+    function pause() public {
+        require(hasRole(PAUSER_ROLE, msg.sender));
+        _pause();
+    }
+
+    function unpause() public {
+        require(hasRole(PAUSER_ROLE, msg.sender));
+        _unpause();
+    }
+
+    function _beforeTokenTransfer(address from, address to, uint256 amount)
+        internal
+        whenNotPaused
+        override
+    {
+        super._beforeTokenTransfer(from, to, amount);
+    }
+}
+</textarea>
+</div>
+<div class="footer">
+   <button class="btn waves-effect waves-light right" id="btnSubmit" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+</div>
+</body>  
+<script type="text/javascript" src="../test.js"></script>
+</html>
